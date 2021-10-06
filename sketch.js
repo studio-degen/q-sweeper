@@ -14,23 +14,30 @@ function make2DArray(cols, rows) {
   return arr;
 }
 
-let grid;
-let cols;
-let rows;
+let grid,rows,cols;
 let w = 10;
-
+let mineRatio = 0.106;
+let entMineRatio = 0.025;
+let RandCell;
 let totalMines = 104;
 
 function setup() {
-  createCanvas(321, 321)
-  cols = floor(width / w);
-  rows = floor(height / w);
+  cols=32;
+  rows=32;
+  createCanvas(321, 321);
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       grid[i][j] = new Cell(i, j, w);
     }
   }
+
+  //randomly assigns some mines as entangled mines
+  RandCell=grid[random(rows)][random(cols)];
+  while(mineCount<int(rows*cols*entMineRatio && RandCell.mine==true && RandCell.EntMine==false)){
+      RandCell.EntMine==true;
+      mineCount++;
+    }
 
   // Pick totalMines spots
   let options = [];
