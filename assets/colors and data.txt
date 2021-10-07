@@ -1,0 +1,25 @@
+Sizes
+Canvas size:1380 x 828 px
+Each cell: 20 x 20 px
+Total size of game area (including all grids): 768 x 768 px
+border: 32 px (because of the grids)
+grid: 4px
+
+colors
+background: (100) #646464
+covered tile: (220) #dcdcdc
+title: (0, 255, 255) #00ffff
+title shadow: (0, 0, 255) #0000ff
+opened tile: (0) #000000
+1: (0, 255, 0) #00ff00
+2: (255, 0, 255) #ff00ff
+3: (255, 150, 0) #ff9600
+4: (0, 0, 255) #0000ff
+5: (135, 0, 0) #870000
+6: (135, 135, 0) #878700
+tomato main: (255, 0, 0) #ff0000
+tomato shadow: (135, 0, 0) #870000
+tomato highlight: (255, 150, 0) #ff9600
+tomato vine-light green: (0, 255, 0) #00ff00
+tomato vine-dark green: (20, 125, 0) #147d00
+flag(warning sign): (255, 255,0) #ffff00 + (255, 0, 0) #ff0000
