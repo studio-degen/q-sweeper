@@ -103,6 +103,7 @@ a:hover {
 }
 #info-box img {
   display: inline;
+  vertical-align: text-bottom;
 }
 #info {
   color: cyan;

@@ -9,6 +9,8 @@ let entMineRatio;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines;
+let totalFlags;
+let showFlags;
 
 let qindex = getRandomInt(25);
 let qindex2 = getRandomInt(25);
@@ -23,6 +25,8 @@ let qtomval = [];
 let tompercent;
 
 let qentval = [];
+
+let flagArray = [];
 
 //img assets created by Yiping and Hyacinth
 //img code by Shangshang
@@ -128,8 +132,10 @@ function setup() {
   }
 
   totalMines = minearray.length;
-  console.log(totalMines)
+  totalFlags = totalMines;
+  console.log(totalFlags);
   startEnt(grid);
+
 }
 
 
@@ -175,6 +181,11 @@ function keyReleased() {
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
         if (grid[i][j].contains(mouseX, mouseY)) {
+          if (!grid[i][j].flagged) {
+            flagArray.push(1);
+          } else {
+            flagArray.splice(0, 1);
+          }
           grid[i][j].flagged = !grid[i][j].flagged;
           return false;
         }
@@ -191,6 +202,9 @@ function draw() {
       grid[i][j].show();
     }
   }
+  showFlags = document.querySelector('#qcount-num');
+  showFlags.innerText = totalFlags - flagArray.length;
+  //console.log(flagArray);
 }
 
 function getRandomInt(max) {
