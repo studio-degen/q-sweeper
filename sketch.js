@@ -6,7 +6,7 @@
 // Video: https://youtu.be/LFU5ZlrR21E
 
 let grid;
-let w = 22;
+let w = 20;
 let cols = 32;
 let rows = 32;
 let marginVal=1; //just for increasing canvas margin by 1px
