@@ -151,7 +151,7 @@ function MineTile(object){
     ramBooT = false;
   }
   if (ramBooT == true){
-    ofill("red");
+    fill("red");
     ellipse(object.x + object.w * 0.5, object.y + object.w * 0.5, object.w * 0.5);
   }
   if(ramBooT == false){
