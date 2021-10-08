@@ -24,10 +24,28 @@ let tompercent;
 
 let qentval = [];
 
+//img assets created by Yiping and Hyacinth
+//img code by Shangshang
+let n1,n2,n3,n4,n5,n6;
+let flagImg, mineImg, tomatoImg;
+
+
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
   qdata2 = loadJSON(`./q-data/bvlima-${qindex2}`+ '.json');
   qdata3 = loadJSON(`./q-data/bvlima-${qindex3}`+ '.json');
+
+  //img assets created by Yiping and Hyacinth
+  //img code by Shangshang
+  n1 = loadImage('assets/Q-Jam/1.jpg');
+  n2 = loadImage('assets/Q-Jam/2.jpg');
+  n3 = loadImage('assets/Q-Jam/3.jpg');
+  n4 = loadImage('assets/Q-Jam/4.jpg');
+  n5 = loadImage('assets/Q-Jam/5.jpg');
+  n6 = loadImage('assets/Q-Jam/6.jpg');
+  flagImg = loadImage('assets/Q-Jam/flag.jpg');
+  mineImg = loadImage('assets/Q-Jam/mine2.jpg');
+  tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
 }
 
 function setup() {
