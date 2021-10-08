@@ -10,13 +10,36 @@ function startEnt(){
     }
     console.log(entMineCount)
 
-    // break down entangled mine number into an array of 2s and 3s
-    // take the array of entangled mines and use the 2/3 array to assign pairs
-    // use the 2/3 numbeer to grab thhat number of tthings in the enttmine array, add that number to a counter, the next 2/3 number startts from the counter index
-    // the first thing in hte entmine array that is grabbed by the 2/3 array takes the indexes from the next n-1 numeber of array items 
-    // if n-1 = 1, put it into this.ai and this.aj
-    // if n-1 = 2, put first into this.ti and this.tj, second into this.bi and this.bj
-    
 }
 
-// revealEnt is in cell.js
+// break down entangled mine number into an array of 2s and 3s
+function twoThree(n){
+    let pairsArray = [];
+    while(n>0){
+        if(n==4 || n==2){
+            pairsArray.push(2);
+            n=n-2;
+        }else if(n==3){
+            pairsArray.push(3);
+            n=n-3;
+        }else if((floor(random(n)))%2==1){
+            pairsArray.push(2);
+            n=n-2;
+        }else{
+            pairsArray.push(3);
+            n=n-3;
+        }
+    } 
+}
+
+ // take the array of entangled mines and use the 2/3 array to assign pairs
+ counter=0; 
+for(n=0; n<pairsArray.length-1; n++){
+    indexTemp=0;
+    for(m=0; m<pairsArray[n]-1; m++){
+        //put the assigned countterparts' information into that entmine
+        entMineArray[counter].entIndex[indexTemp]=(entMineArray[counter+1].entIndex[indexTemp])
+        counter++;
+        indexTemp++;
+    }
+}
