@@ -42,7 +42,7 @@ function pairing(object,entMineArray){
     for(n=0; n<pairsArray.length; n++){
         m=pairsArray[n]; 
             if(m==2){ //if it is a pair
-                let xIndex1 = entMineArray[counter+0][0];
+                let xIndex1 = entMineArray[counter+0][0]; // 
                 let yIndex1 = entMineArray[counter+0][1];
                 let xIndex2 = entMineArray[counter+1][0];
                 let yIndex2 = entMineArray[counter+1][1];
