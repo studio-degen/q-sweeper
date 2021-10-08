@@ -26,7 +26,7 @@ function Cell(i, j, w /*this part*/) {
 }
 
 Cell.prototype.show = function() {
-  stroke(0);
+  stroke(100);
   noFill();
   rect(this.x, this.y, this.w, this.w);
   if (this.revealed) {
