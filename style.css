@@ -11,6 +11,7 @@ html, body {
   margin: 0;
   padding: 0;
   background: rgb(100,100,100);
+  font-family: 'retro_gamingregular';
 }
 body{
   display: grid;
@@ -20,7 +21,6 @@ body{
 h1{
   color: cyan;
   text-shadow: 4px 4px 0px blue;
-  font-family: 'retro_gamingregular';
   font-size: 4em;
   text-align: center;
   grid-column: 2 / 3;
@@ -31,24 +31,44 @@ h1:hover{
   text-shadow: 4px 4px 0px cyan;
 }
 h2{
-  font-family: 'retro_gamingregular';
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   margin: 10px;
 }
-#submenu{
-  display: flex;
-  justify-content: space-between;
-}
-#minecount{
-  color: yellow;
-}
-#restart{
-  color: rgb(0,255,0);
+p{
+  color: white;
 }
 #defaultCanvas0 {
   display: block;
   margin: 30px;
   grid-column: 1 / 2;
   grid-row: 1 / 4;
+}
+#submenu{
+  display: grid;
+  grid: 0.4fr 1fr / 1fr 1fr;
+}
+#minecount{
+  color: yellow;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+#restart{
+  color: rgb(0,255,0);
+  text-align: right;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+#info-box{
+  background-color: rgb(20,20,20);
+  margin: 30px;
+  padding: 30px;
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+#info-box h2{
+  margin: 0px;
+}
+#info{
+  color:white;
 }
