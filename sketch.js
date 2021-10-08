@@ -9,6 +9,10 @@ let entMineRatio = 0.025;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines;
+let tomatoSound;
+let mineSound;
+let entangleMineSound;
+let flagSound;
 
 let qindex = getRandomInt(25);
 let qindex2 = getRandomInt(25);
@@ -21,15 +25,21 @@ let qdict = {};
 let qtomval = [];
 let tompercent;
 
+let tomato = false;
+
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
   qdata2 = loadJSON(`./q-data/bvlima-${qindex2}`+ '.json');
+  mineSound = loadSound("assets/edited_sound/mine.mp3");
+  tomatoSound = loadSound("assets/edited_sound/tomato.mp3");
+  entangleMineSound = loadSound("assets/edited_sound/entangle_mine.mp3");
+  flagSound = loadSound("assets/edited_sound/flag.mp3");
 }
 
 function setup() {
   console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
-
+  
   // make arrays from qdata json files
   for(var q=0; q<8; q++){
     qkey.push(qdata.totals[q][0]);
@@ -99,6 +109,8 @@ function setup() {
   totalMines = minearray.length;
   console.log(totalMines)
   startEnt(grid);
+
+
 }
 
 
@@ -117,6 +129,7 @@ function gameOver() {
     }
   }
 }
+
 function mousePressed(){
   //change mousePressed to keyReleased;
     for (var i = 0; i < cols; i++) {
@@ -124,13 +137,14 @@ function mousePressed(){
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].reveal();
 
+          //for tomato-mineTile by Yiping;
           if (grid[i][j].mine) {
-            //for tomato-mineTile by Yiping;
             MineTile(grid[i][j]);
 
             //displays entangled mines when present
             if(grid[i][j].entMine){
               grid[i][j].revealEnt(); 
+              entangleMineSound.play();
             } 
             //gameOver();
           }
@@ -145,6 +159,7 @@ function keyReleased() {
       for (var j = 0; j < rows; j++) {
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].flagged = !grid[i][j].flagged;
+          flagSound.play();
           return false;
         }
       }
