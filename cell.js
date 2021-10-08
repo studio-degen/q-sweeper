@@ -41,8 +41,12 @@ Cell.prototype.show = function() {
   // text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
-
-      fill(127);
+      if(this.entMine==true){
+        fill("blue");
+      }
+      else{
+        fill(127);
+      }
       ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
     else {
@@ -147,7 +151,7 @@ let valueM;
 function MineTile(mine){
   console.log(mine.x);
   let ra = random(0, 1);
-  if (ra < tompercent) {
+  if (ra < 0.9) {
     ramBooT = true;
   }else{
     ramBooT = false;
