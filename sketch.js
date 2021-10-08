@@ -32,7 +32,7 @@ let gamebool = false;
 //img assets created by Yiping and Hyacinth
 //img code by Shangshang
 let n1,n2,n3,n4,n5,n6;
-let flagImg, mineImg, tomatoImg;
+let entangleMineImg,flagImg, mineImg, tomatoImg;
 
 
 function preload() {
@@ -48,7 +48,8 @@ function preload() {
   n4 = loadImage('assets/Q-Jam/4.jpg');
   n5 = loadImage('assets/Q-Jam/5.jpg');
   n6 = loadImage('assets/Q-Jam/6.jpg');
-  flagImg = loadImage('assets/Q-Jam/flag.jpg');
+  entangleMineImg = loadImage('assets/Q-Jam/entangle_mine2.jpg');
+  flagImg = loadImage('assets/Q-Jam/flag.png');
   mineImg = loadImage('assets/Q-Jam/mine2.jpg');
   tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
 }
