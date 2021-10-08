@@ -1,7 +1,26 @@
+@font-face {
+  font-family: Retro Gaming;
+  src: url(/Users/hyacinthweng/Desktop/Parsons/year_3/qjam/qjam-entangled/assets/Retro_Gaming.ttf);
+}
 html, body {
   margin: 0;
   padding: 0;
+  background: rgb(100,100,100);
 }
-canvas {
+body{
+  display: grid;
+  grid: 0.3fr 0.3fr 1fr / 765px 552px;
+
+}
+h1{
+  color: cyan;
+  font-family: Retro Gaming;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+#defaultCanvas0 {
   display: block;
+  margin: 30px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
 }
