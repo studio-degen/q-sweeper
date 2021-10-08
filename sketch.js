@@ -77,7 +77,8 @@ function mousePressed() {
           grid[i][j].reveal();
           gameOver();
         }
-
+        else
+          grid[i][j].reveal();
       }
     }
   }
