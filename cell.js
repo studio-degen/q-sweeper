@@ -19,6 +19,7 @@ function Cell(i, j, w /*this part*/) {
   // this.bj = entangled conterpart 2 j;
 
   this.mine = false;
+  this.entMine = false;
   this.revealed = false;
 }
 
