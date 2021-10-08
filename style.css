@@ -79,9 +79,12 @@ a:hover{
   grid-row: 1 / 2;
 }
 #restart-icon{
+  background:url("assets/Q-Jam/restart_button.png") no-repeat 60px 34px;
   grid-column: 4 / 5;
   grid-row: 2 / 3;
-  margin: auto;
+}
+#restart-icon:active{
+  background:url("assets/Q-Jam/restart_button_rotated.png") no-repeat 56px 30px;
 }
 #info-box{
   background-color: rgb(20,20,20);
@@ -97,5 +100,17 @@ a:hover{
   display: inline;
 }
 #info{
-  color:white;
+  color:cyan;
+}
+#info-0{
+  color: yellow;
+}
+#info-1 span{
+  color: cyan;
+}
+#info-2 span{
+  color: cyan;
+}
+#info-3 span{
+  color: red;
 }
