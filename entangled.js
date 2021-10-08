@@ -36,22 +36,18 @@ function twoThree(n){
     } 
 }
 
+//grouping the entangled mines together
 function pairing(object){
-    
-    console.log(pairsArray)
+    //console.log(pairsArray)
     for(n=0; n<pairsArray.length; n++){
-        m=pairsArray[n];
-            //put the assigned countterparts' information into that entmine
-            let cell = entMineArray[counter];
-           // entMineArray[counter+m].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex);
-           // entMineArray[counter+1+m].entConnectIndex[m]=(entMineArray[counter+m].selfIndex);
-            if(m==2){
+        m=pairsArray[n]; 
+            let cell = entMineArray[counter]; //counter traverses through entMineArray
+            if(m==2){ //if it is a pair
                 [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
                 [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];  
-                console.log("paired");
-                counter+=m;
+                //console.log("paired");
             }
-            else if(m==3){
+            else if(m==3){ //if it is a triplet
                 [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
                 [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
                 
@@ -60,9 +56,8 @@ function pairing(object){
                 
                 [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
                 [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
-                console.log("triplet");
-                counter+=m;
-          //  }
-        }
+                //console.log("triplet");
+            }
+        counter+=m;
     }
 }
