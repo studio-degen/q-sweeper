@@ -1,20 +1,20 @@
 let pairsArray = [];
 let entMineArray = [];
-counter=0; 
-indexTemp=0;
-function startEnt(grid){
+let counter=0; 
+let indexTemp=0;
+
+function startEnt(object){
     //randomly assigns some mines as entangled mines
-    RandCell=grid[int(random(cols))][int(random(rows))];
+    RandCell=object[int(random(rows))][int(random(cols))];
     while((entMineCount<int(cols*rows*entMineRatio))){
         if((RandCell.mine==true) && (RandCell.entMine==false)){
             RandCell.entMine=true;
             entMineArray.push(RandCell);
             entMineCount++;
-            console.log(RandCell);
         }
-        RandCell=grid[int(random(cols))][int(random(rows))];
+        RandCell=object[int(random(cols))][int(random(rows))];
     }
-    console.log(entMineCount); 
+    console.log(entMineArray);
 }
 
 // break down entangled mine number into an array of 2s and 3s
