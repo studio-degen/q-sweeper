@@ -41,10 +41,12 @@ Cell.prototype.show = function() {
   // text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
-      //img assets created by Yiping and Hyacinth
-      //img code by Shangshang
       //mineImg;
-      image(mineImg, this.x+0.5, this.y+0.5, 20, 20);
+      if(this.entMine){
+        image(entMineImg, this.x+0.5, this.y+0.5, 20, 20);
+      }
+      else
+        image(mineImg, this.x+0.5, this.y+0.5, 20, 20);
       //fill(127);
       //ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
@@ -52,8 +54,6 @@ Cell.prototype.show = function() {
       fill(0);
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
-        //img assets created by Yiping and Hyacinth
-        //img code by Shangshang
         //numberImg;
         if(this.neighborCount==1){
           image(n1, this.x+0.5, this.y+0.5, 20, 20);
@@ -77,8 +77,6 @@ Cell.prototype.show = function() {
       //for tomato-empty&numberTile by Shangshang
       if(this.tomato == false){
         if(this.ra < tompercent){
-          //img assets created by Yiping and Hyacinth
-          //img code by Shangshang
           //tomatoImg;
           image(tomatoImg, this.x+0.5, this.y+0.5, 20, 20);
           // fill("red");
@@ -91,8 +89,6 @@ Cell.prototype.show = function() {
 
   //flagging function by Apurv;
   if (this.flagged) {
-    //img assets created by Yiping and Hyacinth
-    //img code by Shangshang
     //flagImg;
     image(flagImg, this.x+0.5, this.y+0.5, 20, 20);
     // fill(0, 0, 180);
