@@ -1,16 +1,10 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-
-// Minesweeper
-// Video: https://youtu.be/LFU5ZlrR21E
+// modified from minesweeper greybox by Dan Shiffman from video: https://youtu.be/LFU5ZlrR21E
 
 let grid;
 let w = 20;
 let cols = 32;
 let rows = 32;
-let marginVal=1; //just for increasing canvas margin by 1px
-let mineRatio = 0.106;
+let marginVal = 1; //just for increasing canvas margin by 1px
 let entMineRatio = 0.025;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
@@ -36,6 +30,7 @@ function setup() {
   console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
 
+  // make arrays from qdata json files
   for(var q=0; q<8; q++){
     qkey.push(qdata.totals[q][0]);
     qvalue.push(qdata.totals[q][1]);
@@ -53,6 +48,7 @@ function setup() {
   console.log(qtomval);
   let minekey = getKeyByValue(qdict, qvalue[1]);
 
+  // caculate percentage of tomatoes from qdata
   let tomv = (qtomval[5] / qtomval[0]) * 100;
   tompercent = nfc(tomv/100, 2);
   console.log(tompercent);
@@ -129,12 +125,12 @@ function mousePressed(){
 
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
-            MineTile(grid[i][j]);
+            //MineTile(grid[i][j]);
 
             if(grid[i][j].entMine){
               grid[i][j].revealEnt();
             }
-            //gameOver();
+            gameOver();
           }
 
         }
