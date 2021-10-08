@@ -1,7 +1,10 @@
+let pairsArray = [];
+let entMineArray = [];
+counter=0; 
+indexTemp=0;
 function startEnt(grid){
     //randomly assigns some mines as entangled mines
     RandCell=grid[int(random(cols))][int(random(rows))];
-    let entMineArray = [];
     while((entMineCount<int(cols*rows*entMineRatio))){
         if((RandCell.mine==true) && (RandCell.entMine==false)){
             RandCell.entMine=true;
@@ -16,7 +19,6 @@ function startEnt(grid){
 
 // break down entangled mine number into an array of 2s and 3s
 function twoThree(n){
-    let pairsArray = [];
     while(n>0){
         if(n==4 || n==2){
             pairsArray.push(2);
@@ -35,9 +37,7 @@ function twoThree(n){
 }
 
  // take the array of entangled mines and use the 2/3 array to assign pairs
- counter=0; 
 for(n=0; n<pairsArray.length-1; n++){
-    indexTemp=0;
     for(m=0; m<pairsArray[n]-1; m++){
         //put the assigned countterparts' information into that entmine
         entMineArray[counter].entIndex[indexTemp]=(entMineArray[counter+1].entIndex[indexTemp])
