@@ -111,22 +111,50 @@ a:hover {
 #info-0 {
   color: yellow;
 }
+#info-0 span {
+  animation-name: quantCol;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
 #info-1 span {
   color: cyan;
 }
 #info-2 span {
-  color: cyan;
   animation-name: altCol;
   animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 #info-3 span {
   color: red;
 }
 @keyframes altCol {
-  from {
+  0% {
     color: red;
   }
-  to {
+  50% {
     color: cyan;
+  }
+  100% {
+    color: red;
+  }
+}
+@keyframes quantCol {
+  0% {
+    color: red;
+  }
+  20% {
+    color: orange;
+  }
+  40% {
+    color: lightgreen;
+  }
+  60% {
+    color: cyan;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: violet;
   }
 }
