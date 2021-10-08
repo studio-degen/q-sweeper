@@ -42,25 +42,48 @@ Cell.prototype.show = function() {
   // text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
-
-      fill(127);
-      ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
+      //img assets created by Yiping and Hyacinth
+      //img code by Shangshang
+      //mineImg;
+      image(mineImg, this.x+0.5, this.y+0.5, 20, 20);
+      //fill(127);
+      //ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
     else {
-      fill(200);
+      fill(0);
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
-        textAlign(CENTER);
-        fill(0);
-        textSize(5);
-        text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
+        //img assets created by Yiping and Hyacinth
+        //img code by Shangshang
+        //numberImg;
+        if(this.neighborCount==1){
+          image(n1, this.x+0.5, this.y+0.5, 20, 20);
+        } else if (this.neighborCount==2){
+          image(n2, this.x+0.5, this.y+0.5, 20, 20);
+        } else if (this.neighborCount==3){
+          image(n3, this.x, this.y, 20, 20);
+        } else if (this.neighborCount==4){
+          image(n4, this.x+0.5, this.y+0.5, 20, 20);
+        } else if (this.neighborCount==5){
+          image(n5, this.x+0.5, this.y+0.5, 20, 20);
+        } else if (this.neighborCount==6){
+          image(n6, this.x+0.5, this.y+0.5, 20, 20);
+        }
+        // textAlign(CENTER);
+        //fill(0);
+        // textSize(10);
+        // text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
 
       // //for tomato-empty&numberTile by Shangshang
       if(this.tomato == false){
         if(this.ra < tompercent){
-          fill("red");
-          rect(this.x,this.y,10,10);
+          //img assets created by Yiping and Hyacinth
+          //img code by Shangshang
+          //tomatoImg;
+          image(tomatoImg, this.x+0.5, this.y+0.5, 20, 20);
+          // fill("red");
+          // rect(this.x,this.y,10,10);
           tomato = true;
         }
       }
@@ -146,9 +169,9 @@ let ramBooT;
 let valueM;
 
 function MineTile(mine){
-  console.log(mine.x);
+  //console.log(mine.x);
   let ra = random(0, 1);
-  if (ra < 0.9) {
+  if (ra < 0.5) {
     ramBooT = true;
   }else{
     ramBooT = false;

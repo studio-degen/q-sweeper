@@ -1,37 +1,37 @@
-
 @font-face {
-  font-family: 'retro_gamingregular';
-  src: url('assets/webfont-kit/retro_gaming-webfont.woff2') format('woff2'),
-       url('assets/webfont-kit/retro_gaming-webfont.woff') format('woff');
+  font-family: "retro_gamingregular";
+  src: url("assets/webfont-kit/retro_gaming-webfont.woff2") format("woff2"),
+    url("assets/webfont-kit/retro_gaming-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-
 }
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  background: rgb(90,90,90);
-  font-family: 'retro_gamingregular';
+  background: rgb(90, 90, 90);
+  font-family: "retro_gamingregular";
+  overflow: hidden;
 }
-body{
+body {
   display: grid;
-  grid: 0.3fr 0.3fr 1fr / 765px 552px;
-
+  grid: 0.3fr 0.25fr 0.8fr / 765px 552px;
+  margin-top: 30px;
 }
-
-h1{
+h1 {
   font-size: 4em;
   margin: 0px;
 }
-p{
+p {
   color: white;
 }
-a:link,a:visited{
+a:link,
+a:visited {
   color: cyan;
   text-shadow: 4px 4px 0px blue;
   text-decoration: none;
 }
-a:hover{
+a:hover {
   color: blue;
   text-shadow: 4px 4px 0px cyan;
   text-decoration: none;
@@ -42,75 +42,120 @@ a:hover{
   grid-column: 1 / 2;
   grid-row: 1 / 4;
 }
-#title{
+#title {
   text-align: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   padding: 30px;
 }
-#title p{
+#title p {
   margin: 0px;
 }
-#submenu{
+#submenu {
   display: grid;
-  grid: 0.2fr 1fr / 0.6fr 1fr 0.5fr 1fr 0.5fr;
+  grid: 0.2fr 0.5fr / 0.6fr 1fr 0.5fr 1fr 0.5fr;
 }
-#qcount{
+#qcount {
   color: yellow;
   text-align: center;
-  margin:0px;
+  margin: 0px;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
 }
-#qcount-display{
+#qcount-display {
   display: flex;
   justify-content: flex-start;
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
-#qcount-display h2{
+#qcount-display h2 {
   color: yellow;
 }
-#restart{
-  color: rgb(0,255,0);
-  margin:0px;
+#qcount-icon {
+  display: inline;
+  width: 65px;
+  height: 65px;
+  padding: 10px 0px 0px 20px;
+}
+#restart {
+  color: rgb(0, 255, 0);
+  margin: 0px;
   text-align: center;
   grid-column: 4 / 5;
   grid-row: 1 / 2;
 }
-#restart-icon{
-  background:url("assets/Q-Jam/restart_button.png") no-repeat 60px 34px;
+#restart-icon {
+  background: url("assets/Q-Jam/restart_button.png") no-repeat 45px 9px;
   grid-column: 4 / 5;
   grid-row: 2 / 3;
 }
-#restart-icon:active{
-  background:url("assets/Q-Jam/restart_button_rotated.png") no-repeat 56px 30px;
+#restart-icon:active {
+  background: url("assets/Q-Jam/restart_button_rotated.png") no-repeat 41px 5px;
 }
-#info-box{
-  background-color: rgb(20,20,20);
-  margin: 30px;
+#info-box {
+  background-color: rgb(20, 20, 20);
+  margin: 20px;
   padding: 30px;
   grid-column: 2 / 3;
   grid-row: 3 / 4;
 }
-#info-box h2{
+#info-box h2 {
   margin: 0px;
 }
-#info-box img{
+#info-box img {
   display: inline;
+  vertical-align: text-bottom;
 }
-#info{
-  color:cyan;
+#info {
+  color: cyan;
 }
-#info-0{
+#info-0 {
   color: yellow;
 }
-#info-1 span{
+#info-0 span {
+  animation-name: quantCol;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+#info-1 span {
   color: cyan;
 }
-#info-2 span{
-  color: cyan;
+#info-2 span {
+  animation-name: altCol;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
-#info-3 span{
+#info-3 span {
   color: red;
+}
+@keyframes altCol {
+  0% {
+    color: blue;
+  }
+  50% {
+    color: cyan;
+  }
+  100% {
+    color: blue;
+  }
+}
+@keyframes quantCol {
+  0% {
+    color: red;
+  }
+  20% {
+    color: orange;
+  }
+  40% {
+    color: lightgreen;
+  }
+  60% {
+    color: cyan;
+  }
+  80% {
+    color: blue;
+  }
+  100% {
+    color: violet;
+  }
 }

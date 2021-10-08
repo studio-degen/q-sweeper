@@ -5,7 +5,7 @@ let w = 20;
 let cols = 32;
 let rows = 32;
 let marginVal = 1; //just for increasing canvas margin by 1px
-let entMineRatio = 0.025;
+let entMineRatio;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines;
@@ -16,7 +16,8 @@ let flagSound;
 
 let qindex = getRandomInt(25);
 let qindex2 = getRandomInt(25);
-let qdata, qdata2;
+let qindex3 = getRandomInt(25);
+let qdata, qdata2, qdata3;
 let qkey = []; 
 let qvalue = [];
 let qshots = [];
@@ -37,7 +38,7 @@ function preload() {
 }
 
 function setup() {
-  console.log(qdata);
+  //console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
   
   // make arrays from qdata json files
@@ -45,6 +46,7 @@ function setup() {
     qkey.push(qdata.totals[q][0]);
     qvalue.push(qdata.totals[q][1]);
     qtomval.push(qdata2.totals[q][1]);
+    qentval.push(qdata3.totals[q][1]);
   }
 
   for(var q=0; q<1024; q++){
@@ -55,13 +57,21 @@ function setup() {
   //console.log(qdict);
   qvalue.sort(function(a, b){return b - a});
   qtomval.sort(function(a, b){return b - a});
-  console.log(qtomval);
+  //console.log(qtomval);
+
+  qentval.sort(function(a, b){return b - a});
+  console.log(qentval);
+
   let minekey = getKeyByValue(qdict, qvalue[1]);
 
   // caculate percentage of tomatoes from qdata
-  let tomv = (qtomval[5] / qtomval[0]) * 100;
-  tompercent = nfc(tomv/100, 2);
+  let tomv = (qtomval[4] / qtomval[0]) * 100;
+  tompercent = nfc(tomv/100, 3);
   console.log(tompercent);
+
+  let entv = (qentval[5] / qentval[0]) * 100;
+  entMineRatio = nfc(entv/100, 3);
+  console.log(entMineRatio);
 
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
@@ -107,9 +117,9 @@ function setup() {
   }
 
   totalMines = minearray.length;
-  console.log(totalMines)
+  totalFlags = totalMines;
+  console.log(totalFlags);
   startEnt(grid);
-
 
 }
 
@@ -128,6 +138,7 @@ function gameOver() {
       grid[i][j].revealed = true;
     }
   }
+  gamebool = true;
 }
 
 function mousePressed(){
@@ -158,6 +169,11 @@ function keyReleased() {
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
         if (grid[i][j].contains(mouseX, mouseY)) {
+          if (!grid[i][j].flagged) {
+            flagArray.push(1);
+          } else {
+            flagArray.splice(0, 1);
+          }
           grid[i][j].flagged = !grid[i][j].flagged;
           flagSound.play();
           return false;
@@ -169,12 +185,20 @@ function keyReleased() {
 }
 
 function draw() {
-  background(0);
+  background(150);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();
     }
   }
+  showFlags = document.querySelector('#qcount-num');
+  if(!gamebool){
+    showFlags.innerText = totalFlags - flagArray.length;
+  } else {
+    showFlags.innerText = '00';
+  }
+  
+  //console.log(flagArray);
 }
 
 function getRandomInt(max) {

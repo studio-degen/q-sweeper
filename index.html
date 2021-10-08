@@ -26,13 +26,16 @@
       <h2 id='qcount-num'>00</h2>
     </div>
     <h2 id='restart'>RESTART</h2>
-    <div id="restart-icon" onlick="setup()"></div>
+    <div id="restart-icon" onclick="location.reload(true)"></div>
+    <script>
+    function restart(){
+      console.log('hi');
+    }</script>
   </div>
   <div id='info-box'>
     <h2 id='info'>INSTRUCTIONS</h2>
     <p id="info-0">
-      Traditional minesweeper rules + more.
-    </p>
+      Traditional minesweeper rules + <span>quantum</span>.</p>
     <p id="info-1">
       <img src='assets/Q-Jam/mine2.jpg' alt="mine icon" title="mine"/> Clicking on a <span>mine</span> will end the game.
     </p>
