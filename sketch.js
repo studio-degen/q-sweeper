@@ -67,7 +67,6 @@ function setup() {
       options.push([i, j]);
     }
   }
-<<<<<<< Updated upstream
   //console.log(options);
 
   let minearray = [];
@@ -87,17 +86,6 @@ function setup() {
       
     } 
 
-=======
-  //eventually delete cause we are mapping mines
-  // Pick totalMines spots
-  for (let n = 0; n < totalMines; n++) {
-    let index = floor(random(options.length));
-    let i = options[index][0];
-    let j = options[index][1];
-    // Deletes that spot so it's no longer an option
-    options.splice(index, 1);
-    grid[i][j].mine = true;
->>>>>>> Stashed changes
   }
 
   //keeps track of whether the cell is a mine and how many mines are around the cell
@@ -108,7 +96,6 @@ function setup() {
     }
   }
 
-<<<<<<< Updated upstream
   totalMines = minearray.length;
   console.log(totalMines)
   startEnt(grid);
@@ -123,12 +110,6 @@ function make2DArray(cols, rows) {
   }
   return arr;
 }
-=======
-  startEnt(grid);
-}
-
-//turns all the grid elements to true
->>>>>>> Stashed changes
 function gameOver() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -136,7 +117,6 @@ function gameOver() {
     }
   }
 }
-<<<<<<< Updated upstream
 function mousePressed(){
   //change mousePressed to keyReleased;
     for (var i = 0; i < cols; i++) {
@@ -146,16 +126,13 @@ function mousePressed(){
 
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
-            //MineTile(grid[i][j]);
+            MineTile(grid[i][j]);
 
             //displays entangled mines when present
             if(grid[i][j].entMine){
               grid[i][j].revealEnt(); 
-            }
-            else{
-              gameOver();
-            }
-            gameOver();
+            } 
+            //gameOver();
           }
         }
       }
@@ -169,16 +146,6 @@ function keyReleased() {
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].flagged = !grid[i][j].flagged;
           return false;
-=======
-
-function mousePressed() {
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      if (grid[i][j].contains(mouseX, mouseY)) {
-        grid[i][j].reveal();
-        if (grid[i][j].mine) {
-          gameOver();
->>>>>>> Stashed changes
         }
       }
     }
