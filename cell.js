@@ -13,10 +13,12 @@ function Cell(i, j, w /*this part*/) {
   this.w = w;
   this.neighborCount = 0;
   //knowledge of entangled counterpart(s)
-  // this.ai = entangled counterpart 1 i;
-  // this.aj = entangled conterpart 1 j;
-  // this.bi = entangled counterpart 2 i;
-  // this.bj = entangled conterpart 2 j;
+  this.ai = null //entangled counterpart 1 i
+  this.aj = null //entangled conterpart 1 j
+  this.bi = null //entangled counterpart 2 i
+  this.bj = null //entangled conterpart 2 j
+  selfIndex=[i,j]
+  entConnectIndex=[this.ai,this.aj],[this.bi,this.bj]
 
   this.mine = false;
   this.entMine = false;
