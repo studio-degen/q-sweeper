@@ -16,10 +16,10 @@ function make2DArray(cols, rows) {
 
 let grid,rows,cols;
 let w = 10;
-let mineRatio = 0.106;
-let entMineRatio = 0.025;
+let mineRatio = 0.106; // this is not being used
+let entMineRatio = 0.025; // imported from json
 let RandCell;
-let totalMines = 104;
+let totalMines = 104; // imported? or calculated?
 
 
 function setup() {
@@ -85,7 +85,7 @@ function mousePressed() {
       if (grid[i][j].contains(mouseX, mouseY)) {
         if (grid[i][j].mine) {
           if(grid[i][j].entMine){
-            //reveal that entangled mine's counterpart
+            //reveal the entangled mines 
             grid[i][j].revealEnt();
           }else{
             grid[i][j].reveal();
