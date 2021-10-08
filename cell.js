@@ -113,11 +113,11 @@ Cell.prototype.reveal = function() {
 //reveal entangled mines
 Cell.prototype.revealEnt = function(){
   this.revealed = true;
-  //set the entangled counterpart(s) to be revealed
-  // grid[this.ai][this.aj].revealed = true;
-  // if(this.bi){
-  //   grid[this.bi][this.bj].revealed = true;
-  // }
+  set the entangled counterpart(s) to be revealed
+  grid[this.ai][this.aj].revealed = true;
+  if(this.bi){
+    grid[this.bi][this.bj].revealed = true;
+  }
 }
 
 Cell.prototype.floodFill = function() {
