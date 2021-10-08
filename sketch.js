@@ -185,7 +185,7 @@ function keyReleased() {
 }
 
 function draw() {
-  background(0);
+  background(150);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();

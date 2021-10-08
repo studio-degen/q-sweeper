@@ -49,7 +49,7 @@ Cell.prototype.show = function() {
       //ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
     else {
-      fill(127);
+      fill(0);
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
         //img assets created by Yiping and Hyacinth
@@ -69,7 +69,7 @@ Cell.prototype.show = function() {
           image(n6, this.x, this.y, 20, 20);
         }
         // textAlign(CENTER);
-        // fill(0);
+         fill(0);
         // textSize(10);
         // text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
