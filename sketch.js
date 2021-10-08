@@ -6,8 +6,7 @@
 // Video: https://youtu.be/LFU5ZlrR21E
 
 let grid;
-let w = 10;
-let rol = 10;
+let w = 20;
 let cols = 32;
 let rows = 32;
 let mineRatio = 0.106;
