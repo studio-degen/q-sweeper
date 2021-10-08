@@ -13,7 +13,8 @@ function startEnt(object){
         }
         RandCell=object[int(random(cols))][int(random(rows))];
     }
-    twoThree(entMineCount);
+    twoThree(entMineCount); // fn call
+    pairing(object); //fn call
 }
 
 // break down entangled mine number into an array of 2s and 3s
@@ -35,15 +36,33 @@ function twoThree(n){
     } 
 }
 
- // take the array of entangled mines and use the 2/3 array to assign pairs
-for(n=0; n<pairsArray.length; n++){
-    for(m=0; m<pairsArray[n-1]; m+=n){
-        //put the assigned countterparts' information into that entmine
-        entMineArray[counter+m].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex);
-        entMineArray[counter+1+m].entConnectIndex[m]=(entMineArray[counter+m].selfIndex);
-        if(m==1){//i.e., n==3
-            entMineArray[counter].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex); 
+function pairing(object){
+    
+    console.log(pairsArray)
+    for(n=0; n<pairsArray.length; n++){
+        m=pairsArray[n];
+            //put the assigned countterparts' information into that entmine
+            let cell = entMineArray[counter];
+           // entMineArray[counter+m].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex);
+           // entMineArray[counter+1+m].entConnectIndex[m]=(entMineArray[counter+m].selfIndex);
+            if(m==2){
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];  
+                console.log("paired");
+                counter+=m;
+            }
+            else if(m==3){
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
+                
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
+                [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
+                [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
+                console.log("triplet");
+                counter+=m;
+          //  }
         }
     }
-    counter+=n;
 }

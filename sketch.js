@@ -6,15 +6,19 @@
 // Video: https://youtu.be/LFU5ZlrR21E
 
 let grid;
+<<<<<<< HEAD
 let w = 20;
+=======
+let w = 22;
+>>>>>>> 94cd863740ffd48b244a37444bc4e6eda70856eb
 let cols = 32;
 let rows = 32;
+let marginVal=1; //just for increasing canvas margin by 1px
 let mineRatio = 0.106;
 let entMineRatio = 0.025;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines = 104;
-let marginVal=1; //just for increasing canvas margin by 1px
 
 function setup() {
   createCanvas(rows*w+marginVal, cols*w+marginVal);
@@ -71,7 +75,7 @@ function mousePressed() {
     for (let j = 0; j < rows; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
         if (grid[i][j].mine) {
-          if(frid[i][j].entMine){
+          if(grid[i][j].entMine){
             grid[i][j].revealEnt();
           }
           grid[i][j].reveal();
@@ -83,7 +87,7 @@ function mousePressed() {
   }
 }
 function draw() {
-  background(255);
+  background(0);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show();
