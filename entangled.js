@@ -90,5 +90,4 @@ function pairing(object,entMineArray){
         counter+=m;
     }
     console.log(entMineArray);
-    console.log(object)
 }
