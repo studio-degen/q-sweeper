@@ -39,7 +39,7 @@ function setup() {
   for(var q=0; q<1024; q++){
     qshots.push(qdata.shots[q]);
   }
-  //console.log(qshots.length);
+  console.log(qshots.length);
   qkey.forEach((key, i) => qdict[key] = qvalue[i]);
   //console.log(qdict);
   qvalue.sort(function(a, b){return b - a});
@@ -63,7 +63,6 @@ function setup() {
   }
   //console.log(options);
 
-<<<<<<< HEAD
   let minearray = [];
   for (let n = 0; n < options.length; n++) {
     let index;
@@ -80,19 +79,7 @@ function setup() {
       grid[i][j].mine = true;
       
     } 
-    
-=======
 
-  for (let n = 0; n < totalMines; n++) {
-    let index = floor(random(options.length));
-    let choice = options[index];
-    let i = choice[0];
-    let j = choice[1];
-    // Deletes that spot so it's no longer an option
-    options.splice(index, 1);
-    grid[i][j].mine = true;
-    //grid[i][j].entMine = true;
->>>>>>> ca7f30e7030157489dd9a7b9b2486a4f1d550f8d
   }
 
 
@@ -103,9 +90,11 @@ function setup() {
   }
 
   totalMines = minearray.length;
-  //console.log(totalMines)
+  console.log(totalMines)
   startEnt(grid);
 }
+
+
 
 function make2DArray(cols, rows) {
   let arr = new Array(cols);
@@ -121,6 +110,7 @@ function gameOver() {
     }
   }
 }
+
 function mousePressed() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -155,4 +145,4 @@ function getRandomInt(max) {
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => 
           object[key] === value);
-}
+  }
