@@ -17,14 +17,19 @@ let entMineCount = 0; //keeps track of ent mines count
 let totalMines;
 
 let qindex = getRandomInt(25);
-let qdata;
+let qindex2 = getRandomInt(25);
+let qdata, qdata2;
 let qkey = []; 
 let qvalue = [];
 let qshots = [];
 let qdict = {};
 
+let qtomval = [];
+let tompercent;
+
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
+  qdata2 = loadJSON(`./q-data/bvlima-${qindex2}`+ '.json');
 }
 
 function setup() {
@@ -34,6 +39,7 @@ function setup() {
   for(var q=0; q<8; q++){
     qkey.push(qdata.totals[q][0]);
     qvalue.push(qdata.totals[q][1]);
+    qtomval.push(qdata2.totals[q][1]);
   }
 
   for(var q=0; q<1024; q++){
@@ -43,9 +49,13 @@ function setup() {
   qkey.forEach((key, i) => qdict[key] = qvalue[i]);
   //console.log(qdict);
   qvalue.sort(function(a, b){return b - a});
-  //console.log(qvalue);
+  qtomval.sort(function(a, b){return b - a});
+  console.log(qtomval);
   let minekey = getKeyByValue(qdict, qvalue[1]);
 
+  let tomv = (qtomval[5] / qtomval[0]) * 100;
+  tompercent = nfc(tomv/100, 2);
+  console.log(tompercent);
 
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
