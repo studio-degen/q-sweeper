@@ -174,7 +174,7 @@ let valueM;
 function MineTile(mine){
   console.log(mine.x);
   let ra = random(0, 1);
-  if (ra < tompercent) {
+  if (ra < 0.9) {
     ramBooT = true;
   }else{
     ramBooT = false;

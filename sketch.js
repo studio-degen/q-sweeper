@@ -77,11 +77,11 @@ function setup() {
 
   // caculate percentage of tomatoes from qdata
   let tomv = (qtomval[4] / qtomval[0]) * 100;
-  tompercent = nfc(tomv/100, 2);
+  tompercent = nfc(tomv/100, 3);
   console.log(tompercent);
 
-  let entv = (qentval[4] / qentval[0]) * 100;
-  entMineRatio = nfc(entv/100, 2);
+  let entv = (qentval[5] / qentval[0]) * 100;
+  entMineRatio = nfc(entv/100, 3);
   console.log(entMineRatio);
 
   grid = make2DArray(cols, rows);
