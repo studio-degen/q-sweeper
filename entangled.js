@@ -1,7 +1,6 @@
 let pairsArray = [];
 let entMineArray = [];
 let counter=0; 
-let indexTemp=0;
 
 function startEnt(object){
     //randomly assigns some mines as entangled mines
@@ -14,7 +13,7 @@ function startEnt(object){
         }
         RandCell=object[int(random(cols))][int(random(rows))];
     }
-    console.log(entMineArray);
+    twoThree(entMineCount);
 }
 
 // break down entangled mine number into an array of 2s and 3s
@@ -37,11 +36,14 @@ function twoThree(n){
 }
 
  // take the array of entangled mines and use the 2/3 array to assign pairs
-for(n=0; n<pairsArray.length-1; n++){
-    for(m=0; m<pairsArray[n]-1; m++){
+for(n=0; n<pairsArray.length; n++){
+    for(m=0; m<pairsArray[n-1]; m+=n){
         //put the assigned countterparts' information into that entmine
-        entMineArray[counter].entIndex[indexTemp]=(entMineArray[counter+1].entIndex[indexTemp])
-        counter++;
-        indexTemp++;
+        entMineArray[counter+m].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex);
+        entMineArray[counter+1+m].entConnectIndex[m]=(entMineArray[counter+m].selfIndex);
+        if(m==1){//i.e., n==3
+            entMineArray[counter].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex); 
+        }
     }
+    counter+=n;
 }
