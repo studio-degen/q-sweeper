@@ -48,8 +48,9 @@ function preload() {
   n4 = loadImage('assets/Q-Jam/4.jpg');
   n5 = loadImage('assets/Q-Jam/5.jpg');
   n6 = loadImage('assets/Q-Jam/6.jpg');
-  flagImg = loadImage('assets/Q-Jam/flag.jpg');
+  flagImg = loadImage('assets/Q-Jam/flag.png');
   mineImg = loadImage('assets/Q-Jam/mine2.jpg');
+  entMineImg = loadImage('assets/Q-Jam/entangle_mine2.jpg');
   tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
 }
 
