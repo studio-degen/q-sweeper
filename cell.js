@@ -22,7 +22,7 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = true;
+  this.revealed = false;
 
   //flagging function by Apurv;
   this.flagged = false;
