@@ -125,7 +125,7 @@ function mousePressed(){
 
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
-            //MineTile(grid[i][j]);
+            MineTile(grid[i][j]);
 
             //displays entangled mines when present
             if(grid[i][j].entMine){
@@ -134,6 +134,7 @@ function mousePressed(){
             else{
               gameOver();
             }
+    
           }
         }
       }
