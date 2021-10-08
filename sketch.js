@@ -5,15 +5,6 @@
 // Minesweeper
 // Video: https://youtu.be/LFU5ZlrR21E
 
-
-function make2DArray(cols, rows) {
-  let arr = new Array(cols);
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(rows);
-  }
-  return arr;
-}
-
 let grid;
 let w = 10;
 let rol = 10;
@@ -60,9 +51,15 @@ function setup() {
       grid[i][j].countMines();
     }
   }
-
+  startEnt(grid);
 }
-
+function make2DArray(cols, rows) {
+  let arr = new Array(cols);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = new Array(rows);
+  }
+  return arr;
+}
 function gameOver() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -70,7 +67,6 @@ function gameOver() {
     }
   }
 }
-
 function mousePressed() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -85,7 +81,6 @@ function mousePressed() {
     }
   }
 }
-
 function draw() {
   background(255);
   for (let i = 0; i < cols; i++) {
