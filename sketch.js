@@ -5,14 +5,15 @@ let w = 20;
 let cols = 32;
 let rows = 32;
 let marginVal = 1; //just for increasing canvas margin by 1px
-let entMineRatio = 0.025;
+let entMineRatio;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines;
 
 let qindex = getRandomInt(25);
 let qindex2 = getRandomInt(25);
-let qdata, qdata2;
+let qindex3 = getRandomInt(25);
+let qdata, qdata2, qdata3;
 let qkey = []; 
 let qvalue = [];
 let qshots = [];
@@ -21,13 +22,16 @@ let qdict = {};
 let qtomval = [];
 let tompercent;
 
+let qentval = [];
+
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
   qdata2 = loadJSON(`./q-data/bvlima-${qindex2}`+ '.json');
+  qdata3 = loadJSON(`./q-data/bvlima-${qindex3}`+ '.json');
 }
 
 function setup() {
-  console.log(qdata);
+  //console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
 
   // make arrays from qdata json files
@@ -35,6 +39,7 @@ function setup() {
     qkey.push(qdata.totals[q][0]);
     qvalue.push(qdata.totals[q][1]);
     qtomval.push(qdata2.totals[q][1]);
+    qentval.push(qdata3.totals[q][1]);
   }
 
   for(var q=0; q<1024; q++){
@@ -45,13 +50,21 @@ function setup() {
   //console.log(qdict);
   qvalue.sort(function(a, b){return b - a});
   qtomval.sort(function(a, b){return b - a});
-  console.log(qtomval);
+  //console.log(qtomval);
+
+  qentval.sort(function(a, b){return b - a});
+  console.log(qentval);
+
   let minekey = getKeyByValue(qdict, qvalue[1]);
 
   // caculate percentage of tomatoes from qdata
-  let tomv = (qtomval[5] / qtomval[0]) * 100;
+  let tomv = (qtomval[4] / qtomval[0]) * 100;
   tompercent = nfc(tomv/100, 2);
   console.log(tompercent);
+
+  let entv = (qentval[4] / qentval[0]) * 100;
+  entMineRatio = nfc(entv/100, 2);
+  console.log(entMineRatio);
 
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
