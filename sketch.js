@@ -14,18 +14,20 @@ function make2DArray(cols, rows) {
   return arr;
 }
 
-let grid,rows,cols;
+let grid;
 let w = 10;
-let mineRatio = 0.106; // this is not being used
-let entMineRatio = 0.025; // imported from json
+let rol = 10;
+let cols = 32;
+let rows = 32;
+let mineRatio = 0.106;
+let entMineRatio = 0.025;
 let RandCell;
-let totalMines = 104; // imported? or calculated?
-
+let entMineCount = 0; //keeps track of ent mines count 
+let totalMines = 104;
+let marginVal=1; //just for increasing canvas margin by 1px
 
 function setup() {
-  cols=32; 
-  rows=32;
-  createCanvas(321, 321);
+  createCanvas(rows*w+marginVal, cols*w+marginVal);
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -33,10 +35,7 @@ function setup() {
     }
   }
 
-  startEnt();
-
   // Pick totalMines spots
-  // options is an array with all cell locations
   let options = [];
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -44,21 +43,14 @@ function setup() {
     }
   }
 
-  //cycle through total num of mines
+
   for (let n = 0; n < totalMines; n++) {
-    //instead determined by q data
-    //index is a raondom numbner capped at the number of cells
     let index = floor(random(options.length));
-    //choice is the cell at the random number
     let choice = options[index];
-    //i is the column num of the cell
     let i = choice[0];
-    //j is the row num of the cell
     let j = choice[1];
     // Deletes that spot so it's no longer an option
     options.splice(index, 1);
-
-    //the cell at the location on the grid is marked as a mine
     grid[i][j].mine = true;
   }
 
@@ -83,17 +75,12 @@ function mousePressed() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
+        grid[i][j].reveal();
+
         if (grid[i][j].mine) {
-          if(grid[i][j].entMine){
-            //reveal the entangled mines 
-            grid[i][j].revealEnt();
-          }else{
-            grid[i][j].reveal();
-            gameOver();
-          }
-        }else{
-          grid[i][j].reveal();
+          gameOver();
         }
+
       }
     }
   }
