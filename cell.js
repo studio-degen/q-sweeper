@@ -22,7 +22,7 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = true;
+  this.revealed = false;
 
   //flagging function by Apurv;
   this.flagged = false;
@@ -41,6 +41,8 @@ Cell.prototype.show = function() {
   stroke(100);
   noFill();
   rect(this.x, this.y, this.w, this.w);
+  textSize(8);
+  text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
       fill(127);
@@ -52,7 +54,7 @@ Cell.prototype.show = function() {
       if (this.neighborCount > 0) {
         textAlign(CENTER);
         fill(0);
-        textSize(10);
+        textSize(5);
         text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
 
@@ -76,10 +78,10 @@ Cell.prototype.show = function() {
 }
 
 Cell.prototype.countMines = function() {
-  if (this.mine) {
-    this.neighborCount = -1;
-    return;
-  }
+  // if (this.mine) {
+  //   this.neighborCount = -1;
+  //   return;
+  // }
   let total = 0;
   for (let xoff = -1; xoff <= 1; xoff++) {
     let i = this.i + xoff;
@@ -113,10 +115,12 @@ Cell.prototype.reveal = function() {
 //reveal entangled mines
 Cell.prototype.revealEnt = function(){
   this.revealed = true;
-  set the entangled counterpart(s) to be revealed
+  //set the entangled counterpart(s) to be revealed
   grid[this.ai][this.aj].revealed = true;
+  console.log("double")
   if(this.bi){
     grid[this.bi][this.bj].revealed = true;
+    console.log("triple")
   }
 }
 
