@@ -42,6 +42,7 @@ function setup() {
     // Deletes that spot so it's no longer an option
     options.splice(index, 1);
     grid[i][j].mine = true;
+    //grid[i][j].entMine = true;
   }
 
 
@@ -74,8 +75,9 @@ function mousePressed() {
           if(grid[i][j].entMine){
             grid[i][j].revealEnt();
           }
-          grid[i][j].reveal();
-          gameOver();
+          else{
+            gameOver();
+          }
         }
         else
           grid[i][j].reveal();

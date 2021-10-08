@@ -56,7 +56,7 @@ function pairing(object){
                 
                 [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
                 [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
-                //console.log("triplet");
+                //console.log([entMineArray[counter+2].ai,entMineArray[counter+2].aj]);
             }
         counter+=m;
     }
