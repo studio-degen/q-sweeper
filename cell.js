@@ -5,13 +5,18 @@
 // Minesweeper
 // Video: https://youtu.be/LFU5ZlrR21E
 
-function Cell(i, j, w) {
+function Cell(i, j, w /*this part*/) {
   this.i = i;
   this.j = j;
   this.x = i * w;
   this.y = j * w;
   this.w = w;
   this.neighborCount = 0;
+  //knowledge of entangled counterpart(s)
+  // this.ai = entangled counterpart 1 i;
+  // this.aj = entangled conterpart 1 j;
+  // this.bi = entangled counterpart 2 i;
+  // this.bj = entangled conterpart 2 j;
 
   this.mine = false;
   this.revealed = false;
@@ -71,6 +76,11 @@ Cell.prototype.reveal = function() {
     // flood fill time
     this.floodFill();
   }
+}
+
+//reveal entangled mines
+Cell.prototype.revealEnt = function(){
+  this.revealed = true;
 }
 
 Cell.prototype.floodFill = function() {
