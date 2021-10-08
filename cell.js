@@ -37,18 +37,13 @@ Cell.prototype.show = function() {
   stroke(100);
   noFill();
   rect(this.x, this.y, this.w, this.w);
-  textSize(8);
-  text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
+  // textSize(8);
+  // text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
-      if(this.ra < 0.5){
-        fill('red');
-        ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
-      } else {
-        fill(127);
-        ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
-      }
-      
+
+      fill(127);
+      ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
     else {
       fill(200);
@@ -145,23 +140,23 @@ Cell.prototype.floodFill = function() {
   }
 }
 
-//for tomato-mineTile by Yiping;
-// let ramBooT; 
-// let valueM;
+// for tomato-mineTile by Yiping;
+let ramBooT; 
+let valueM;
 
-// function MineTile(mine){
-//   console.log(mine.x);
-//   let ra = random(0, 1);
-//   if (ra < 0.9) {
-//     ramBooT = true;
-//   }else{
-//     ramBooT = false;
-//   }
-//   if (ramBooT == true){
-//     fill("red");
-//     rect(mine.x, mine.y, 10, 10);
-//   }
-//   if(ramBooT == false){
-//     gameOver();
-//   }
-// }
+function MineTile(mine){
+  console.log(mine.x);
+  let ra = random(0, 1);
+  if (ra < 0.9) {
+    ramBooT = true;
+  }else{
+    ramBooT = false;
+  }
+  if (ramBooT == true){
+    fill("red");
+    rect(mine.x, mine.y, 10, 10);
+  }
+  if(ramBooT == false){
+    gameOver();
+  }
+}
