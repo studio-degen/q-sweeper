@@ -46,12 +46,12 @@ Cell.prototype.show = function() {
       ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
     else {
-      fill(200);
+      fill(127);
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
         textAlign(CENTER);
         fill(0);
-        textSize(5);
+        textSize(10);
         text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
 
@@ -147,7 +147,7 @@ let valueM;
 function MineTile(mine){
   console.log(mine.x);
   let ra = random(0, 1);
-  if (ra < 0.9) {
+  if (ra < tompercent) {
     ramBooT = true;
   }else{
     ramBooT = false;
