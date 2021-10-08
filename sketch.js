@@ -27,6 +27,7 @@ let tompercent;
 let qentval = [];
 
 let flagArray = [];
+let gamebool = false;
 
 //img assets created by Yiping and Hyacinth
 //img code by Shangshang
@@ -153,6 +154,7 @@ function gameOver() {
       grid[i][j].revealed = true;
     }
   }
+  gamebool = true;
 }
 function mousePressed(){
   //change mousePressed to keyReleased;
@@ -203,7 +205,12 @@ function draw() {
     }
   }
   showFlags = document.querySelector('#qcount-num');
-  showFlags.innerText = totalFlags - flagArray.length;
+  if(!gamebool){
+    showFlags.innerText = totalFlags - flagArray.length;
+  } else {
+    showFlags.innerText = '00';
+  }
+  
   //console.log(flagArray);
 }
 

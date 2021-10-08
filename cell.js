@@ -69,7 +69,7 @@ Cell.prototype.show = function() {
           image(n6, this.x, this.y, 20, 20);
         }
         // textAlign(CENTER);
-         fill(0);
+        //fill(0);
         // textSize(10);
         // text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
@@ -172,9 +172,9 @@ let ramBooT;
 let valueM;
 
 function MineTile(mine){
-  console.log(mine.x);
+  //console.log(mine.x);
   let ra = random(0, 1);
-  if (ra < 0.9) {
+  if (ra < 0.5) {
     ramBooT = true;
   }else{
     ramBooT = false;
