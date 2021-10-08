@@ -136,7 +136,6 @@ function gameOver() {
     }
   }
 }
-<<<<<<< Updated upstream
 function mousePressed(){
   //change mousePressed to keyReleased;
     for (var i = 0; i < cols; i++) {
@@ -169,7 +168,6 @@ function keyReleased() {
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].flagged = !grid[i][j].flagged;
           return false;
-=======
 
 function mousePressed() {
   for (let i = 0; i < cols; i++) {
@@ -178,7 +176,6 @@ function mousePressed() {
         grid[i][j].reveal();
         if (grid[i][j].mine) {
           gameOver();
->>>>>>> Stashed changes
         }
       }
     }
