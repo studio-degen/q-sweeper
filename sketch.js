@@ -9,8 +9,10 @@ let entMineRatio;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
 let totalMines;
-let totalFlags;
-let showFlags;
+let tomatoSound;
+let mineSound;
+let entangleMineSound;
+let flagSound;
 
 let qindex = getRandomInt(25);
 let qindex2 = getRandomInt(25);
@@ -24,16 +26,7 @@ let qdict = {};
 let qtomval = [];
 let tompercent;
 
-let qentval = [];
-
-let flagArray = [];
-let gamebool = false;
-
-//img assets created by Yiping and Hyacinth
-//img code by Shangshang
-let n1,n2,n3,n4,n5,n6;
-let flagImg, mineImg, tomatoImg;
-
+let tomato = false;
 
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
@@ -57,7 +50,7 @@ function preload() {
 function setup() {
   //console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
-
+  
   // make arrays from qdata json files
   for(var q=0; q<8; q++){
     qkey.push(qdata.totals[q][0]);
@@ -157,6 +150,7 @@ function gameOver() {
   }
   gamebool = true;
 }
+
 function mousePressed(){
   //change mousePressed to keyReleased;
     for (var i = 0; i < cols; i++) {
@@ -164,13 +158,14 @@ function mousePressed(){
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].reveal();
 
+          //for tomato-mineTile by Yiping;
           if (grid[i][j].mine) {
-            //for tomato-mineTile by Yiping;
             MineTile(grid[i][j]);
 
             //displays entangled mines when present
             if(grid[i][j].entMine){
               grid[i][j].revealEnt(); 
+              entangleMineSound.play();
             } 
             //gameOver();
           }
@@ -190,6 +185,7 @@ function keyReleased() {
             flagArray.splice(0, 1);
           }
           grid[i][j].flagged = !grid[i][j].flagged;
+          flagSound.play();
           return false;
         }
       }

@@ -31,6 +31,7 @@ function Cell(i, j, w /*this part*/) {
   this.tomato = false;
   this.destroy = false;
   this.ra = random(0,1);
+
 }
 
 Cell.prototype.show = function() {
@@ -74,7 +75,7 @@ Cell.prototype.show = function() {
         // text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
 
-      //for tomato-empty&numberTile by Shangshang
+      // //for tomato-empty&numberTile by Shangshang
       if(this.tomato == false){
         if(this.ra < tompercent){
           //tomatoImg;
@@ -95,6 +96,7 @@ Cell.prototype.show = function() {
 	  // circle(this.x + 10, this.y + 10, 5);
   }
 
+  }
 }
 
 Cell.prototype.countMines = function() {
@@ -178,8 +180,10 @@ function MineTile(mine){
   if (ramBooT == true){
     fill("red");
     rect(mine.x, mine.y, 10, 10);
+    tomatoSound.play();
   }
   if(ramBooT == false){
     gameOver();
+    mineSound.play();
   }
 }
