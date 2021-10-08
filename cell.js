@@ -22,7 +22,7 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = false;
+  this.revealed = true;
 
   //flagging function by Apurv;
   this.flagged = false;
@@ -58,7 +58,7 @@ Cell.prototype.show = function() {
 
       //for tomato-empty&numberTile by Shangshang
       if(this.tomato==false){
-        if(this.quantum<0.5){
+        if(this.quantum < tompercent){
           fill("red");
           rect(this.x,this.y,10,10);
           tomato = true;
@@ -113,11 +113,11 @@ Cell.prototype.reveal = function() {
 //reveal entangled mines
 Cell.prototype.revealEnt = function(){
   this.revealed = true;
-  //set the entangled counterpart(s) to be revealed
-  // grid[this.ai][this.aj].revealed = true;
-  // if(this.bi){
-  //   grid[this.bi][this.bj].revealed = true;
-  // }
+  set the entangled counterpart(s) to be revealed
+  grid[this.ai][this.aj].revealed = true;
+  if(this.bi){
+    grid[this.bi][this.bj].revealed = true;
+  }
 }
 
 Cell.prototype.floodFill = function() {
@@ -145,7 +145,7 @@ let valueM;
 
 function MineTile(object){
   valueM = Math.random(0, 1);
-  if (valueM < 0.9) {
+  if (this.quantum < tompercent) {
     ramBooT = true;
   }else{
     ramBooT = false;
