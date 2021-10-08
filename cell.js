@@ -13,10 +13,10 @@ function Cell(i, j, w /*this part*/) {
   this.w = w;
   this.neighborCount = 0;
   //knowledge of entangled counterpart(s)
-  this.ai = 1 //entangled counterpart 1 i
-  this.aj = 2 //entangled conterpart 1 j
-  this.bi = 3 //entangled counterpart 2 i
-  this.bj = 4 //entangled conterpart 2 j
+  this.ai = null //entangled counterpart 1 i
+  this.aj = null //entangled conterpart 1 j
+  this.bi = null //entangled counterpart 2 i
+  this.bj = null //entangled conterpart 2 j
   selfIndex=[i,j]
   entConnectIndex=[[this.ai,this.aj],[this.bi,this.bj]]
 
@@ -86,10 +86,10 @@ Cell.prototype.reveal = function() {
 Cell.prototype.revealEnt = function(){
   this.revealed = true;
   //set the entangled counterpart(s) to be revealed
-  grid[this.ai][this.aj].revealed = true;
-  if(this.bi){
-    grid[this.bi][this.bj].revealed = true;
-  }
+  // grid[this.ai][this.aj].revealed = true;
+  // if(this.bi){
+  //   grid[this.bi][this.bj].revealed = true;
+  // }
 }
 
 Cell.prototype.floodFill = function() {
