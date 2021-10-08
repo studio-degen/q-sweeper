@@ -1,6 +1,11 @@
+
 @font-face {
-  font-family: Retro Gaming;
-  src: url(/Users/hyacinthweng/Desktop/Parsons/year_3/qjam/qjam-entangled/assets/Retro_Gaming.ttf);
+  font-family: 'retro_gamingregular';
+  src: url('assets/webfont-kit/retro_gaming-webfont.woff2') format('woff2'),
+       url('assets/webfont-kit/retro_gaming-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
 }
 html, body {
   margin: 0;
@@ -14,9 +19,32 @@ body{
 }
 h1{
   color: cyan;
-  font-family: Retro Gaming;
+  text-shadow: 4px 4px 0px blue;
+  font-family: 'retro_gamingregular';
+  font-size: 4em;
+  text-align: center;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+}
+h1:hover{
+  color: blue;
+  text-shadow: 4px 4px 0px cyan;
+}
+h2{
+  font-family: 'retro_gamingregular';
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin: 10px;
+}
+#submenu{
+  display: flex;
+  justify-content: space-between;
+}
+#minecount{
+  color: yellow;
+}
+#restart{
+  color: rgb(0,255,0);
 }
 #defaultCanvas0 {
   display: block;
