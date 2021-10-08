@@ -53,10 +53,11 @@ a:hover{
 }
 #submenu{
   display: grid;
-  grid: 0.2fr 1fr / 0.5fr 1fr 0.5fr 1fr 0.5fr;
+  grid: 0.2fr 1fr / 0.6fr 1fr 0.5fr 1fr 0.5fr;
 }
 #qcount{
   color: yellow;
+  text-align: center;
   margin:0px;
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -73,15 +74,14 @@ a:hover{
 #restart{
   color: rgb(0,255,0);
   margin:0px;
-  text-align: right;
+  text-align: center;
   grid-column: 4 / 5;
   grid-row: 1 / 2;
 }
 #restart-icon{
   grid-column: 4 / 5;
   grid-row: 2 / 3;
-  margin-left: auto;
-  margin-right: 30px;
+  margin: auto;
 }
 #info-box{
   background-color: rgb(20,20,20);
@@ -92,6 +92,9 @@ a:hover{
 }
 #info-box h2{
   margin: 0px;
+}
+#info-box img{
+  display: inline;
 }
 #info{
   color:white;
