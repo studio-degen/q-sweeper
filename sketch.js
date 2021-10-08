@@ -6,7 +6,7 @@
 // Video: https://youtu.be/LFU5ZlrR21E
 
 let grid;
-let w = 22;
+let w = 20;
 let cols = 32;
 let rows = 32;
 let marginVal=1; //just for increasing canvas margin by 1px
@@ -63,6 +63,7 @@ function setup() {
   }
   //console.log(options);
 
+<<<<<<< HEAD
   let minearray = [];
   for (let n = 0; n < options.length; n++) {
     let index;
@@ -80,6 +81,18 @@ function setup() {
       
     } 
     
+=======
+
+  for (let n = 0; n < totalMines; n++) {
+    let index = floor(random(options.length));
+    let choice = options[index];
+    let i = choice[0];
+    let j = choice[1];
+    // Deletes that spot so it's no longer an option
+    options.splice(index, 1);
+    grid[i][j].mine = true;
+    //grid[i][j].entMine = true;
+>>>>>>> ca7f30e7030157489dd9a7b9b2486a4f1d550f8d
   }
 
 
@@ -116,10 +129,12 @@ function mousePressed() {
           if(grid[i][j].entMine){
             grid[i][j].revealEnt();
           }
-          grid[i][j].reveal();
-          gameOver();
+          else{
+            gameOver();
+          }
         }
-
+        else
+          grid[i][j].reveal();
       }
     }
   }
