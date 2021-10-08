@@ -16,7 +16,7 @@ body {
 body {
   display: grid;
   grid: 0.3fr 0.25fr 0.8fr / 765px 552px;
-  margin-top: 30px;
+  margin-top: 0.5vh;
 }
 h1 {
   font-size: 4em;
