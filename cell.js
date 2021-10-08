@@ -22,7 +22,19 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = true;
+  this.revealed = false;
+
+  //flagging function by Apurv;
+  this.flagged = false;
+  
+  //for tomato-empty&numberTile by Shangshang;
+  this.tomato=false;
+  this.quantum=random(0,1);
+  
+  //for tomato-mineTile by Yiping;
+  this.color=(127);
+  this.tilecolor=(200);
+  this.numbercolor=(0);
 }
 
 Cell.prototype.show = function() {
@@ -43,8 +55,24 @@ Cell.prototype.show = function() {
         textSize(10);
         text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
+
+      //for tomato-empty&numberTile by Shangshang
+      if(this.tomato==false){
+        if(this.quantum<0.5){
+          fill("red");
+          rect(this.x,this.y,10,10);
+          tomato = true;
+        }
+      }
     }
   }
+
+  //flagging function by Apurv;
+  if (this.flagged) {
+    fill(0, 0, 180);
+	circle(this.x + 10, this.y + 10, 5);
+  }
+
 }
 
 Cell.prototype.countMines = function() {
@@ -108,5 +136,25 @@ Cell.prototype.floodFill = function() {
         neighbor.reveal();
       }
     }
+  }
+}
+
+//for tomato-mineTile by Yiping;
+let ramBooT; 
+let valueM;
+
+function MineTile(object){
+  valueM = Math.random(0, 1);
+  if (valueM < 0.9) {
+    ramBooT = true;
+  }else{
+    ramBooT = false;
+  }
+  if (ramBooT == true){
+    ofill("red");
+    ellipse(object.x + object.w * 0.5, object.y + object.w * 0.5, object.w * 0.5);
+  }
+  if(ramBooT == false){
+    gameOver();
   }
 }

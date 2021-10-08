@@ -111,24 +111,43 @@ function gameOver() {
   }
 }
 
-function mousePressed() {
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      if (grid[i][j].contains(mouseX, mouseY)) {
-        if (grid[i][j].mine) {
-          if(grid[i][j].entMine){
-            grid[i][j].revealEnt();
-          }
-          else{
-            gameOver();
-          }
-        }
-        else
+//flagging function by Apurv;
+function keyReleased() {
+  //change mousePressed to keyReleased;
+  if (key === 'r' || key === 'R') {
+    for (var i = 0; i < cols; i++) {
+      for (var j = 0; j < rows; j++) {
+        if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].reveal();
+
+          if (grid[i][j].mine) {
+            //for tomato-mineTile by Yiping;
+            MineTile(grid[i][j]);
+
+            if(grid[i][j].entMine){
+              grid[i][j].revealEnt();
+            }
+            //gameOver();
+          }
+
+        }
       }
     }
   }
+  
+  if (key === 'f' || key === 'F') {
+    for (var i = 0; i < cols; i++) {
+      for (var j = 0; j < rows; j++) {
+        if (grid[i][j].contains(mouseX, mouseY)) {
+          grid[i][j].flagged = !grid[i][j].flagged;
+          return false;
+        }
+      }
+    }
+  }
+  
 }
+
 function draw() {
   background(0);
   for (let i = 0; i < cols; i++) {
