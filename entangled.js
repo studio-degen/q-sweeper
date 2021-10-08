@@ -1,15 +1,17 @@
-function startEnt(){
+function startEnt(grid){
     //randomly assigns some mines as entangled mines
-    RandCell=grid[random(cols)][random(rows)];
+    RandCell=grid[int(random(cols))][int(random(rows))];
     let entMineArray = [];
-    while(entMineCount<int(cols*rows*entMineRatio) && (RandCell.mine==true) && (RandCell.entMine==false)){
-        RandCell.entMine==true;
-        entMineArray.push(RandCell);
-        entMineCount++;
-
+    while((entMineCount<int(cols*rows*entMineRatio))){
+        if((RandCell.mine==true) && (RandCell.entMine==false)){
+            RandCell.entMine=true;
+            entMineArray.push(RandCell);
+            entMineCount++;
+            console.log(RandCell);
+        }
+        RandCell=grid[int(random(cols))][int(random(rows))];
     }
-    console.log(entMineCount)
-
+    console.log(entMineCount); 
 }
 
 // break down entangled mine number into an array of 2s and 3s
