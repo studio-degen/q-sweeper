@@ -126,14 +126,15 @@ function mousePressed(){
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
             //MineTile(grid[i][j]);
+
+            //displays entangled mines when present
             if(grid[i][j].entMine){
-              grid[i][j].revealEnt();
+              grid[i][j].revealEnt(); 
             }
             else{
               gameOver();
             }
           }
-
         }
       }
   }
