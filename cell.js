@@ -22,7 +22,7 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = false;
+  this.revealed = true;
 
   //flagging function by Apurv;
   this.flagged = false;
@@ -44,7 +44,7 @@ Cell.prototype.show = function() {
       //img assets created by Yiping and Hyacinth
       //img code by Shangshang
       //mineImg;
-      image(mineImg, this.x, this.y, 20, 20);
+      image(mineImg, this.x+0.5, this.y+0.5, 20, 20);
       //fill(127);
       //ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);      
     } 
@@ -56,17 +56,17 @@ Cell.prototype.show = function() {
         //img code by Shangshang
         //numberImg;
         if(this.neighborCount==1){
-          image(n1, this.x, this.y, 20, 20);
+          image(n1, this.x+0.5, this.y+0.5, 20, 20);
         } else if (this.neighborCount==2){
-          image(n2, this.x, this.y, 20, 20);
+          image(n2, this.x+0.5, this.y+0.5, 20, 20);
         } else if (this.neighborCount==3){
           image(n3, this.x, this.y, 20, 20);
         } else if (this.neighborCount==4){
-          image(n4, this.x, this.y, 20, 20);
+          image(n4, this.x+0.5, this.y+0.5, 20, 20);
         } else if (this.neighborCount==5){
-          image(n5, this.x, this.y, 20, 20);
+          image(n5, this.x+0.5, this.y+0.5, 20, 20);
         } else if (this.neighborCount==6){
-          image(n6, this.x, this.y, 20, 20);
+          image(n6, this.x+0.5, this.y+0.5, 20, 20);
         }
         // textAlign(CENTER);
          fill(0);
@@ -80,7 +80,7 @@ Cell.prototype.show = function() {
           //img assets created by Yiping and Hyacinth
           //img code by Shangshang
           //tomatoImg;
-          image(tomatoImg, this.x, this.y, 20, 20);
+          image(tomatoImg, this.x+0.5, this.y+0.5, 20, 20);
           // fill("red");
           // rect(this.x,this.y,10,10);
           tomato = true;
@@ -94,7 +94,7 @@ Cell.prototype.show = function() {
     //img assets created by Yiping and Hyacinth
     //img code by Shangshang
     //flagImg;
-    image(flagImg, this.x, this.y, 20, 20);
+    image(flagImg, this.x+0.5, this.y+0.5, 20, 20);
     // fill(0, 0, 180);
 	  // circle(this.x + 10, this.y + 10, 5);
   }
