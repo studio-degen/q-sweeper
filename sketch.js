@@ -71,9 +71,11 @@ function mousePressed() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
-        grid[i][j].reveal();
-
         if (grid[i][j].mine) {
+          if(frid[i][j].entMine){
+            grid[i][j].revealEnt();
+          }
+          grid[i][j].reveal();
           gameOver();
         }
 
