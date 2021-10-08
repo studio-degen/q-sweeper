@@ -129,12 +129,13 @@ function mousePressed(){
 
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
-            MineTile(grid[i][j]);
-
+            //MineTile(grid[i][j]);
             if(grid[i][j].entMine){
               grid[i][j].revealEnt();
             }
-            //gameOver();
+            else{
+              gameOver();
+            }
           }
 
         }
