@@ -12,13 +12,12 @@ html, body {
   padding: 0;
   background: rgb(90,90,90);
   font-family: 'retro_gamingregular';
+  overflow:hidden;
 }
 body{
   display: grid;
-  grid: 0.3fr 0.3fr 1fr / 765px 552px;
-
+  grid: 0.3fr 0.25fr 0.8fr / 765px 552px;
 }
-
 h1{
   font-size: 4em;
   margin: 0px;
@@ -53,7 +52,7 @@ a:hover{
 }
 #submenu{
   display: grid;
-  grid: 0.2fr 1fr / 0.6fr 1fr 0.5fr 1fr 0.5fr;
+  grid: 0.2fr 0.5fr / 0.6fr 1fr 0.5fr 1fr 0.5fr;
 }
 #qcount{
   color: yellow;
@@ -71,6 +70,12 @@ a:hover{
 #qcount-display h2{
   color: yellow;
 }
+#qcount-icon{
+  display: inline;
+  width:65px;
+  height: 65px;
+  padding: 10px 0px 0px 20px;
+}
 #restart{
   color: rgb(0,255,0);
   margin:0px;
@@ -79,16 +84,16 @@ a:hover{
   grid-row: 1 / 2;
 }
 #restart-icon{
-  background:url("assets/Q-Jam/restart_button.png") no-repeat 45px 14px;
+  background:url("assets/Q-Jam/restart_button.png") no-repeat 45px 9px;
   grid-column: 4 / 5;
   grid-row: 2 / 3;
 }
 #restart-icon:active{
-  background:url("assets/Q-Jam/restart_button_rotated.png") no-repeat 41px 10px;
+  background:url("assets/Q-Jam/restart_button_rotated.png") no-repeat 41px 5px;
 }
 #info-box{
   background-color: rgb(20,20,20);
-  margin: 30px;
+  margin: 20px;
   padding: 30px;
   grid-column: 2 / 3;
   grid-row: 3 / 4;
