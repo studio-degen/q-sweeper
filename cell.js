@@ -28,13 +28,9 @@ function Cell(i, j, w /*this part*/) {
   this.flagged = false;
   
   //for tomato-empty&numberTile by Shangshang;
-  this.tomato=false;
-  this.quantum=random(0,1);
-  
-  //for tomato-mineTile by Yiping;
-  this.color=(127);
-  this.tilecolor=(200);
-  this.numbercolor=(0);
+  this.tomato = false;
+  this.destroy = false;
+  this.ra = random(0,1);
 }
 
 Cell.prototype.show = function() {
@@ -45,8 +41,14 @@ Cell.prototype.show = function() {
   text([this.i,this.j], this.x + this.w * 0.5, this.y + this.w - 6)
   if (this.revealed) {
     if (this.mine) {
-      fill(127);
-      ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
+      if(this.ra < 0.5){
+        fill('red');
+        ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
+      } else {
+        fill(127);
+        ellipse(this.x + this.w * 0.5, this.y + this.w * 0.5, this.w * 0.5);
+      }
+      
     } 
     else {
       fill(200);
@@ -59,8 +61,8 @@ Cell.prototype.show = function() {
       }
 
       //for tomato-empty&numberTile by Shangshang
-      if(this.tomato==false){
-        if(this.quantum < tompercent){
+      if(this.tomato == false){
+        if(this.ra < tompercent){
           fill("red");
           rect(this.x,this.y,10,10);
           tomato = true;
@@ -144,21 +146,22 @@ Cell.prototype.floodFill = function() {
 }
 
 //for tomato-mineTile by Yiping;
-let ramBooT; 
-let valueM;
+// let ramBooT; 
+// let valueM;
 
-function MineTile(object){
-  valueM = Math.random(0, 1);
-  if (this.quantum < tompercent) {
-    ramBooT = true;
-  }else{
-    ramBooT = false;
-  }
-  if (ramBooT == true){
-    fill("red");
-    ellipse(object.x + object.w * 0.5, object.y + object.w * 0.5, object.w * 0.5);
-  }
-  if(ramBooT == false){
-    gameOver();
-  }
-}
+// function MineTile(mine){
+//   console.log(mine.x);
+//   let ra = random(0, 1);
+//   if (ra < 0.9) {
+//     ramBooT = true;
+//   }else{
+//     ramBooT = false;
+//   }
+//   if (ramBooT == true){
+//     fill("red");
+//     rect(mine.x, mine.y, 10, 10);
+//   }
+//   if(ramBooT == false){
+//     gameOver();
+//   }
+// }
