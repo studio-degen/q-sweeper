@@ -22,7 +22,7 @@ function Cell(i, j, w /*this part*/) {
 
   this.mine = false;
   this.entMine = false;
-  this.revealed = false;
+  this.revealed = true;
 }
 
 Cell.prototype.show = function() {

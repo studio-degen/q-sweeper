@@ -14,10 +14,39 @@ let mineRatio = 0.106;
 let entMineRatio = 0.025;
 let RandCell;
 let entMineCount = 0; //keeps track of ent mines count 
-let totalMines = 104;
+let totalMines;
+
+let qindex = getRandomInt(25);
+let qdata;
+let qkey = []; 
+let qvalue = [];
+let qshots = [];
+let qdict = {};
+
+function preload() {
+  qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
+}
 
 function setup() {
+  console.log(qdata);
   createCanvas(rows*w+marginVal, cols*w+marginVal);
+
+  for(var q=0; q<8; q++){
+    qkey.push(qdata.totals[q][0]);
+    qvalue.push(qdata.totals[q][1]);
+  }
+
+  for(var q=0; q<1024; q++){
+    qshots.push(qdata.shots[q]);
+  }
+  //console.log(qshots.length);
+  qkey.forEach((key, i) => qdict[key] = qvalue[i]);
+  //console.log(qdict);
+  qvalue.sort(function(a, b){return b - a});
+  //console.log(qvalue);
+  let minekey = getKeyByValue(qdict, qvalue[1]);
+
+
   grid = make2DArray(cols, rows);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
@@ -32,16 +61,25 @@ function setup() {
       options.push([i, j]);
     }
   }
+  //console.log(options);
 
-
-  for (let n = 0; n < totalMines; n++) {
-    let index = floor(random(options.length));
-    let choice = options[index];
-    let i = choice[0];
-    let j = choice[1];
-    // Deletes that spot so it's no longer an option
-    options.splice(index, 1);
-    grid[i][j].mine = true;
+  let minearray = [];
+  for (let n = 0; n < options.length; n++) {
+    let index;
+    if(qshots[n] == minekey) {
+      index = n;  
+      let choice = options[index];
+      minearray.push(choice);
+      //console.log(choice);
+      let i = choice[0];
+      let j = choice[1];
+      //console.log(i, j); 
+      // Deletes that spot so it's no longer an option
+      options.splice(index, 1);
+      grid[i][j].mine = true;
+      
+    } 
+    
   }
 
 
@@ -50,8 +88,12 @@ function setup() {
       grid[i][j].countMines();
     }
   }
+
+  totalMines = minearray.length;
+  //console.log(totalMines)
   startEnt(grid);
 }
+
 function make2DArray(cols, rows) {
   let arr = new Array(cols);
   for (let i = 0; i < arr.length; i++) {
@@ -89,4 +131,13 @@ function draw() {
       grid[i][j].show();
     }
   }
+}
+
+function getRandomInt(max) {
+  return Math.ceil(Math.random() * max);
+}
+
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => 
+          object[key] === value);
 }
