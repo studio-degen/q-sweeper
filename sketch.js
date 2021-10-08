@@ -110,11 +110,8 @@ function gameOver() {
     }
   }
 }
-
-//flagging function by Apurv;
-function keyReleased() {
+function mousePressed(){
   //change mousePressed to keyReleased;
-  if (key === 'r' || key === 'R') {
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
         if (grid[i][j].contains(mouseX, mouseY)) {
@@ -132,9 +129,10 @@ function keyReleased() {
 
         }
       }
-    }
   }
-  
+}
+//flagging function by Apurv;
+function keyReleased() {
   if (key === 'f' || key === 'F') {
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
