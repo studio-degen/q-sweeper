@@ -37,27 +37,32 @@ function twoThree(n){
 }
 
 function pairing(object){
-    // take the array of entangled mines and use the 2/3 array to assign pairs
+    
+    console.log(pairsArray)
     for(n=0; n<pairsArray.length; n++){
-        for(m=0; m<pairsArray[n-1]; m+=n){
+        m=pairsArray[n];
             //put the assigned countterparts' information into that entmine
-            console.log(m);
-            console.log(n);
-            let cell = entMineArray[counter+m];
-            console.log(entMineArray[counter+m].ai,entMineArray[counter+m].aj);
+            let cell = entMineArray[counter];
            // entMineArray[counter+m].entConnectIndex[m]=(entMineArray[counter+1+m].selfIndex);
            // entMineArray[counter+1+m].entConnectIndex[m]=(entMineArray[counter+m].selfIndex);
-            if(m==0){//i.e., n==2
-                [entMineArray[counter+m].ai,entMineArray[counter+m].aj]=[entMineArray[counter+1+m].i,entMineArray[counter+1+m].j];
-                [entMineArray[counter+m+1].ai,entMineArray[counter+m+1].aj]=[entMineArray[counter+m].i,entMineArray[counter+m].j];  
+            if(m==2){
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];  
+                console.log("paired");
+                counter+=m;
             }
-            else{//i.e., n==3 m==2
-                [entMineArray[counter+m].ai,entMineArray[counter+m].aj]=[entMineArray[counter+1+m].i,entMineArray[counter+1+m].j];
-                [entMineArray[counter+m+1].ai,entMineArray[counter+m+1].aj]=[entMineArray[counter+m].i,entMineArray[counter+m].j];
-                [entMineArray[counter+m].ai,entMineArray[counter+m].aj]=[entMineArray[counter+1+m].i,entMineArray[counter+1+m].j];
-                [entMineArray[counter+m+1].ai,entMineArray[counter+m+1].aj]=[entMineArray[counter+m].i,entMineArray[counter+m].j];
-            }
+            else if(m==3){
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
+                
+                [entMineArray[counter+1].ai,entMineArray[counter+1].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
+                [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+1].i,entMineArray[counter+1].j];
+                
+                [entMineArray[counter+0].ai,entMineArray[counter+0].aj]=[entMineArray[counter+2].i,entMineArray[counter+2].j];
+                [entMineArray[counter+2].ai,entMineArray[counter+2].aj]=[entMineArray[counter+0].i,entMineArray[counter+0].j];
+                console.log("triplet");
+                counter+=m;
+          //  }
         }
-        counter+=n;
     }
 }
