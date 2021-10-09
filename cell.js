@@ -1,10 +1,3 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-
-// Minesweeper
-// Video: https://youtu.be/LFU5ZlrR21E
-
 function Cell(i, j, w /*this part*/) {
   this.i = i;
   this.j = j;
@@ -31,7 +24,6 @@ function Cell(i, j, w /*this part*/) {
   this.tomato = false;
   this.destroy = false;
   this.ra = random(0,1);
-
 }
 
 Cell.prototype.show = function() {
@@ -75,7 +67,7 @@ Cell.prototype.show = function() {
         // text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
 
-      // //for tomato-empty&numberTile by Shangshang
+      //for tomato-empty&numberTile by Shangshang
       if(this.tomato == false){
         if(this.ra < tompercent){
           //tomatoImg;
@@ -96,7 +88,6 @@ Cell.prototype.show = function() {
 	  // circle(this.x + 10, this.y + 10, 5);
   }
 
-  }
 }
 
 Cell.prototype.countMines = function() {
@@ -166,24 +157,23 @@ Cell.prototype.floodFill = function() {
 }
 
 // for tomato-mineTile by Yiping;
-let ramBooT; 
-let valueM;
+// let ramBooT; 
+// let valueM;
 
-function MineTile(mine){
-  //console.log(mine.x);
-  let ra = random(0, 1);
-  if (ra < 0.5) {
-    ramBooT = true;
-  }else{
-    ramBooT = false;
-  }
-  if (ramBooT == true){
-    fill("red");
-    rect(mine.x, mine.y, 10, 10);
-    tomatoSound.play();
-  }
-  if(ramBooT == false){
-    gameOver();
-    mineSound.play();
-  }
-}
+// function MineTile(mine){
+//   //console.log(mine.x);
+//   let ra = random(0, 1);
+//   if (ra < tompercent) {
+//     ramBooT = true;
+//   }else{
+//     ramBooT = false;
+//   }
+//   if (ramBooT == true){
+//     //image(tomatoImg, this.x+0.5, this.y+0.5, 20, 20);
+//     // fill("red");
+//     // rect(mine.x, mine.y, 10, 10);
+//   }
+//   if(ramBooT == false){
+//     gameOver();
+//   }
+// }
