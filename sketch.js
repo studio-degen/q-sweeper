@@ -34,6 +34,10 @@ let gamebool = false;
 let n1,n2,n3,n4,n5,n6;
 let flagImg, mineImg, tomatoImg;
 
+//sounds
+let mineSound;
+let entangleMineSound;
+let flagSound;
 
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
@@ -48,9 +52,16 @@ function preload() {
   n4 = loadImage('assets/Q-Jam/4.jpg');
   n5 = loadImage('assets/Q-Jam/5.jpg');
   n6 = loadImage('assets/Q-Jam/6.jpg');
-  flagImg = loadImage('assets/Q-Jam/flag.jpg');
+  flagImg = loadImage('assets/Q-Jam/flag.png');
   mineImg = loadImage('assets/Q-Jam/mine2.jpg');
+  entMineImg = loadImage('assets/Q-Jam/entangle_mine2.jpg');
   tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
+
+  //sounds
+  mineSound = loadSound("assets/edited_sound/mine.mp3");
+  entangleMineSound = loadSound("assets/edited_sound/entangle_mine.mp3");
+  flagSound = loadSound("assets/edited_sound/flag.mp3");
+
 }
 
 function setup() {
@@ -165,13 +176,17 @@ function mousePressed(){
 
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
-            MineTile(grid[i][j]);
+            //MineTile(grid[i][j]);
 
             //displays entangled mines when present
             if(grid[i][j].entMine){
               grid[i][j].revealEnt(); 
+              entangleMineSound.play();
             } 
-            //gameOver();
+            else{
+              mineSound.play();
+              gameOver();
+            }
           }
         }
       }
@@ -189,6 +204,7 @@ function keyReleased() {
             flagArray.splice(0, 1);
           }
           grid[i][j].flagged = !grid[i][j].flagged;
+          flagSound.play();
           return false;
         }
       }
