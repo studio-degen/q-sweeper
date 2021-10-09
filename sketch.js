@@ -34,6 +34,10 @@ let gamebool = false;
 let n1,n2,n3,n4,n5,n6;
 let flagImg, mineImg, tomatoImg;
 
+//sounds
+let mineSound;
+let entangleMineSound;
+let flagSound;
 
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
@@ -52,6 +56,12 @@ function preload() {
   mineImg = loadImage('assets/Q-Jam/mine2.jpg');
   entMineImg = loadImage('assets/Q-Jam/entangle_mine2.jpg');
   tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
+
+  //sounds
+  mineSound = loadSound("assets/edited_sound/mine.mp3");
+  entangleMineSound = loadSound("assets/edited_sound/entangle_mine.mp3");
+  flagSound = loadSound("assets/edited_sound/flag.mp3");
+
 }
 
 function setup() {
@@ -171,8 +181,10 @@ function mousePressed(){
             //displays entangled mines when present
             if(grid[i][j].entMine){
               grid[i][j].revealEnt(); 
+              entangleMineSound.play();
             } 
             else{
+              mineSound.play();
               gameOver();
             }
           }
@@ -192,6 +204,7 @@ function keyReleased() {
             flagArray.splice(0, 1);
           }
           grid[i][j].flagged = !grid[i][j].flagged;
+          flagSound.play();
           return false;
         }
       }
