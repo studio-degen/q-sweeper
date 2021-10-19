@@ -58,9 +58,9 @@ function preload() {
   tomatoImg = loadImage('assets/Q-Jam/tomato2.jpg');
 
   //sounds
-  mineSound = loadSound("assets/edited_sound/mine.mp3");
-  entangleMineSound = loadSound("assets/edited_sound/entangle_mine.mp3");
-  flagSound = loadSound("assets/edited_sound/flag.mp3");
+  mineSound = loadSound("assets/edited_sound/Mine.wav");
+  entangleMineSound = loadSound("assets/edited_sound/E_Mine.wav");
+  flagSound = loadSound("assets/edited_sound/Flag.wav");
 
 }
 
