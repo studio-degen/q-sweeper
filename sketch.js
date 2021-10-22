@@ -39,6 +39,9 @@ let mineSound;
 let entangleMineSound;
 let flagSound;
 
+//code for win by Shangshang
+let winCount;
+
 function preload() {
   qdata = loadJSON(`./q-data/bvlima-${qindex}`+ '.json'); //${qindex}
   qdata2 = loadJSON(`./q-data/bvlima-${qindex2}`+ '.json');
@@ -132,7 +135,6 @@ function setup() {
       grid[i][j].mine = true;
       
     } 
-
   }
 
   //keeps track of whether the cell is a mine and how many mines are around the cell
@@ -167,13 +169,14 @@ function gameOver() {
   }
   gamebool = true;
 }
+
 function mousePressed(){
+  winCount=cols*rows-totalMines;
   //change mousePressed to keyReleased;
     for (var i = 0; i < cols; i++) {
       for (var j = 0; j < rows; j++) {
         if (grid[i][j].contains(mouseX, mouseY)) {
           grid[i][j].reveal();
-
           if (grid[i][j].mine) {
             //for tomato-mineTile by Yiping;
             //MineTile(grid[i][j]);
@@ -187,6 +190,13 @@ function mousePressed(){
               mineSound.play();
               gameOver();
             }
+          }
+        }
+        //code for win by Shangshang
+        if (grid[i][j].entMine==false){
+          if (grid[i][j].revealed==true){
+            winCount--;
+            console.log(winCount);
           }
         }
       }
