@@ -88,6 +88,11 @@ Cell.prototype.show = function() {
 	  // circle(this.x + 10, this.y + 10, 5);
   }
 
+  //code for win by Shangshang
+  if(winCount==1){//when the last tile is clicked;
+    fill("yellow");
+    rect(0,0,640,640);
+  }
 }
 
 Cell.prototype.countMines = function() {
