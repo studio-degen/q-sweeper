@@ -1,2 +1,2 @@
 # q-sweeper
-https://pandahya.github.io/qjam-entangled/
+https://pandahya.github.io/q-sweeper/
