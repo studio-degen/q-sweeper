@@ -1,2 +1,2 @@
 # q-sweeper
-https://pandahya.github.io/q-sweeper/
+https://studio-degen.github.io/q-sweeper/
